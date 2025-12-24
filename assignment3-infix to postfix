@@ -1,0 +1,20 @@
+     Conversion Of Infix expression to Postfix expression using Shunting Yard
+
+
+
+ Example: A + B * C
+
+- Use a stack for operators
+- Output queue for the postfix expression
+- Apply precedence and associativity rules
+
+   // Steps
+1. A → Operand → Add to output → Output: A
+2. + → Stack empty → Push + → Stack: +
+3. B → Operand → Add to output → Output: A B
+4. * → Top of stack + → * has higher precedence → Push * → Stack: + *
+5. C → Operand → Add to output → Output: A B C
+6. End of input → Pop stack to output: Pop * → Output: A B C *, Pop + → Output: A B C * +
+
+
+Postfix Result:  A B C * +
