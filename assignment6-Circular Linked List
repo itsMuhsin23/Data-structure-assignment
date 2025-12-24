@@ -1,0 +1,94 @@
+         Circular Linked List
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+
+Node* createNode(int data) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = data;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Insertion
+void insertAtEnd(Node** head, int data) {
+    Node* newNode = createNode(data);
+    if(*head == NULL) {
+        *head = newNode;
+        newNode->next = *head; // circular link
+        return;
+    }
+
+    Node* temp = *head;
+    while(temp->next != *head) 
+        temp = temp->next;
+
+    temp->next = newNode;
+    newNode->next = *head; // maintain circular link
+}
+
+// Deletion
+void deleteNode(Node** head, int key) {
+    if(*head == NULL) return;
+
+    Node* current = *head;
+    Node* prev = NULL;
+
+    
+    if(current->data == key) {
+        // Single node case
+        if(current->next == *head) {
+            free(current);
+            *head = NULL;
+            return;
+        }
+        
+        Node* last = *head;
+        while(last->next != *head)
+            last = last->next;
+
+        last->next = current->next;
+        *head = current->next;
+        free(current);
+        return;
+    }
+
+    
+    prev = current;
+    current = current->next;
+    while(current != *head && current->data != key) {
+        prev = current;
+        current = current->next;
+    }
+
+    if(current->data == key) {
+        prev->next = current->next;
+        free(current);
+    } else {
+        printf("Element %d not found\n", key);
+    }
+}
+
+// Traversal
+void traverseList(Node* head) {
+    if(head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    Node* temp = head;
+    printf("List: ");
+    do {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    } while(temp != head);
+    printf("\n");
+}
