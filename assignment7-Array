@@ -1,0 +1,60 @@
+            Array adding and deletion
+
+Array insertion adds an element at a specified position by shifting elements right,
+while deletion removes an element by shifting elements left.
+
+
+
+
+#include <stdio.h>
+
+#define MAX 100
+
+// Insertion
+void insertElement(int arr[], int *n, int element, int position) {
+    if (*n >= MAX) {
+        printf("Array overflow. Cannot insert.\n");
+        return;
+    }
+
+    if (position < 0 || position > *n) {
+        printf("Invalid position.\n");
+        return;
+    }
+
+    // Shift elements to the right
+    for (int i = *n; i > position; i--) {
+        arr[i] = arr[i - 1];
+    }
+
+    arr[position] = element;
+    (*n)++;
+}
+
+// Deletion
+void deleteElement(int arr[], int *n, int position) {
+    if (*n <= 0) {
+        printf("Array underflow. Cannot delete.\n");
+        return;
+    }
+
+    if (position < 0 || position >= *n) {
+        printf("Invalid position.\n");
+        return;
+    }
+
+    // Shift elements to the left
+    for (int i = position; i < *n - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+
+    (*n)--;
+}
+
+// Display array elements
+void displayArray(int arr[], int n) {
+    printf("Array: ");
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
