@@ -1,0 +1,19 @@
+                   DFS & BFS Application
+
+
+   DFS Application:
+1. Finding Connected Components (Clusters)
+2. Cycle Detection - detects cycles in directed and undirected graphs
+3. Topological Sorting - orders tasks based on dependencies
+4. Path Finding and maze solving - explores all possible paths
+5. Tree traversals - inorder,preorder, postorder traversals
+6. Artificial Intelligence - used in game trees.
+
+
+  BFS Application:
+1. Shortest Path in Unweighted Graphs - find the shortest number of edges
+2. Level Order Traversal of Trees  - traverses tree level by level
+3. Bipartite Graph Checking - determine whether graph can be divided into two sets
+4. Web Crawlers - Crawls web pages level by level
+5. Broadcasting in Networks - used in packet routing for communication
+6. Shortest Path in Grids and Mazes - for robot navigation
