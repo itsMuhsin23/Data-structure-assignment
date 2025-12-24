@@ -1,0 +1,47 @@
+             Extracting clusters from a graph given as an array
+
+
+Clusters - are the connected components of a graph.
+
+
+Extracting clusters from a graph means identifying all connected components by traversing
+the graph and grouping vertices that are reachable from one another.
+
+
+#include <stdio.h>
+
+#define MAX 10
+
+int graph[MAX][MAX];
+int visited[MAX];
+int n;
+
+// DFS
+void dfs(int node) {
+    visited[node] = 1;
+    printf("%d ", node);
+
+    for (int i = 0; i < n; i++) {
+        if (graph[node][i] == 1 && !visited[i]) {
+            dfs(i);
+        }
+    }
+}
+
+// Extracting clusters 
+void findClusters() {
+    int clusterCount = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (!visited[i]) {
+            clusterCount++;
+            printf("Cluster %d: ", clusterCount);
+            dfs(i);
+            printf("\n");
+        }
+    }
+}
+
+
+
+
