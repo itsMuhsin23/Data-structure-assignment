@@ -13,6 +13,6 @@ or reordering rows and columns to optimize performance. By ignoring zero entries
 sparse matrix transformations enable efficient handling of large-scale matrices that would otherwise be impractical to process.
 
 
-sparse matrix has lesser memory isnce it has lesser non-zero elements.
+sparse matrix has lesser memory since it has lesser non-zero elements.
 
 Time complexity is O(m * n)
