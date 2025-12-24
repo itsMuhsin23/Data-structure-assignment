@@ -1,0 +1,18 @@
+        Sparse Matrix Transformation
+Sparse matrix is the process of applying  mathematical operations to a matrix that contains mostly zero elements.
+
+A matrix is sparse if:
+
+- The majority of its elements are zero
+
+- Only a relatively small number of entries are non-zero
+
+These transformations may include changing the matrix representation (such as converting a dense matrix into a sparse format), 
+transposing the matrix, performing linear operations like scaling or matrix multiplication, 
+or reordering rows and columns to optimize performance. By ignoring zero entries during computation, 
+sparse matrix transformations enable efficient handling of large-scale matrices that would otherwise be impractical to process.
+
+
+sparse matrix has lesser memory isnce it has lesser non-zero elements.
+
+Time complexity is O(m * n)
